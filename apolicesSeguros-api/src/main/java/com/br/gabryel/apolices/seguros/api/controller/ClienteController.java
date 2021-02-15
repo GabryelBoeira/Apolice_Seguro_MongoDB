@@ -3,8 +3,9 @@ package com.br.gabryel.apolices.seguros.api.controller;
 import com.br.gabryel.apolices.seguros.api.model.Cliente;
 import com.br.gabryel.apolices.seguros.api.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class ClienteController {
     }
 
     @PostMapping("/cliente/new")
-    public Cliente createTask(@RequestBody Cliente cliente) {
+    public Cliente createCliente(@RequestBody Cliente cliente) {
         return clienteService.save(cliente);
     }
 
@@ -31,17 +32,17 @@ public class ClienteController {
     }
 
     @GetMapping("/cliente/{id}")
-    public Cliente getTask(@PathVariable String id) {
+    public Cliente getCliente(@PathVariable String id) {
         return clienteService.getCliente(id);
     }
 
     @PutMapping("/cliente/edit")
-    public Cliente editTask(@RequestBody Cliente cliente) {
+    public Cliente editCliente(@RequestBody Cliente cliente) {
         return clienteService.update(cliente);
     }
 
     @DeleteMapping("/cliente/{id}")
-    public void deleteTask(@PathVariable String id) throws ResponseStatusException {
-        clienteService.deleteById(id);
+    public ResponseEntity<String> deleteCliente(@PathVariable String id) {
+        return new ResponseEntity<String>(clienteService.deleteById(id), HttpStatus.OK);
     }
 }

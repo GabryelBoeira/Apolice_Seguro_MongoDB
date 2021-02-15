@@ -10,6 +10,6 @@ public interface ClienteService {
     Cliente save(Cliente cliente);
     Cliente getCliente(String id);
     Cliente update(Cliente cliente);
-    void deleteById(String id);
+    String deleteById(String id);
 
 }
