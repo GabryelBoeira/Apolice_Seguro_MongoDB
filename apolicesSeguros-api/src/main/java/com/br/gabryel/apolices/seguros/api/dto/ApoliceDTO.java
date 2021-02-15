@@ -1,37 +1,22 @@
-package com.br.gabryel.apolices.seguros.api.model;
+package com.br.gabryel.apolices.seguros.api.dto;
 
-import lombok.Data;
+import com.br.gabryel.apolices.seguros.api.model.Cliente;
 import lombok.NonNull;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 
-@Data
-@Document
-public class Apolice {
+public class ApoliceDTO {
 
-    @Id
     private String id;
-
     private String numero;
-
-    @NonNull
     private Float valor;
-
-    @NonNull
     private LocalDate vigenciaInicial;
-
-    @NonNull
     private LocalDate vigenciaFinal;
-
-    @NonNull
     private String placaVeiculo;
-
-    @NonNull
-    @DBRef
     private Cliente clienteApolice;
+    private String statusApolice;
+    private String periodoValido;
 
     public String getId() {
         return id;
@@ -87,5 +72,21 @@ public class Apolice {
 
     public void setClienteApolice(Cliente clienteApolice) {
         this.clienteApolice = clienteApolice;
+    }
+
+    public String getStatusApolice() {
+        return statusApolice;
+    }
+
+    public void setStatusApolice(String statusApolice) {
+        this.statusApolice = statusApolice;
+    }
+
+    public String getPeriodoValido() {
+        return periodoValido;
+    }
+
+    public void setPeriodoValido(String periodoValido) {
+        this.periodoValido = periodoValido;
     }
 }

@@ -26,7 +26,7 @@ public class ClienteController {
         return clienteService.save(cliente);
     }
 
-    @GetMapping("/cliente/find-all")
+    @GetMapping("/cliente/list-all")
     public List<Cliente> getAll() {
         return clienteService.findAll();
     }

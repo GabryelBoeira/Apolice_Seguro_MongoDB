@@ -1,6 +1,8 @@
 package com.br.gabryel.apolices.seguros.api.service.impl;
 
+import com.br.gabryel.apolices.seguros.api.model.Apolice;
 import com.br.gabryel.apolices.seguros.api.model.Cliente;
+import com.br.gabryel.apolices.seguros.api.repository.ApoliceRepository;
 import com.br.gabryel.apolices.seguros.api.repository.ClienteRepository;
 import com.br.gabryel.apolices.seguros.api.service.ClienteService;
 import com.br.gabryel.apolices.seguros.api.util.Util;
@@ -29,6 +31,8 @@ public class ClienteServiceImpl implements ClienteService {
     @Autowired
     ClienteRepository clienteRepository;
 
+    @Autowired
+    ApoliceRepository apoliceRepository;
 
     @Override
     public List<Cliente> findAll() {
@@ -94,6 +98,8 @@ public class ClienteServiceImpl implements ClienteService {
         if (!clienteRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, MSG_NOT_FOUND_DELETE);
         }
+
+        apoliceRepository.deleteAllByClienteApolice(id);
         clienteRepository.deleteById(id);
         return MSG_DELETE_SUCCESS;
     }

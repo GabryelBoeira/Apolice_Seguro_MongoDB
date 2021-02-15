@@ -1,30 +1,37 @@
 package com.br.gabryel.apolices.seguros.api.model;
 
 import lombok.Data;
+import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import javax.persistence.Column;
 
 @Data
 @Document(collection = "cliente")
 public class Cliente {
 
     @Id
-    @Column(name = "id_cliente")
     private String id;
 
-    @Column(name = "nome", nullable = false)
+    @NonNull
     private String nome;
 
-    @Column(name = "cpf", nullable = false)
+    @NonNull
     private String cpf;
 
-    @Column(name = "cidade", nullable = false)
+    @NonNull
     private String cidade;
 
-    @Column(name = "uf", nullable = false)
+    @NonNull
     private String uf;
+
+    public Cliente(String id, String nome, String cpf, String cidade, String uf) {
+        super();
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.cidade = cidade;
+        this.uf = uf;
+    }
 
     public String getId() {
         return id;

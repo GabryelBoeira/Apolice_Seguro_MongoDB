@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ApoliceRepository extends MongoRepository<Apolice, String> {
+
+    void deleteAllByClienteApolice(String id);
+    Apolice findByNumero(String id);
+
 }
