@@ -24,3 +24,6 @@ Sistema para criação de apólice de seguro com Spring Boot e MongoDB
 | [IDE](https://www.jetbrains.com/pt-br/idea/)                                  | Intellij      |
 | [Lombok](https://mvnrepository.com/artifact/org.projectlombok/lombok/1.18.18) | 1.18.18       |
 | [Postman](https://www.postman.com/downloads/)                                 | 8.0.5         |
+
+
+**** Este é um Projeto Concluido ****
