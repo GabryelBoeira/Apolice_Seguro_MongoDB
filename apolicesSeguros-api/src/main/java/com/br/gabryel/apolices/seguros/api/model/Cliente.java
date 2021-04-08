@@ -24,9 +24,7 @@ public class Cliente {
     @NonNull
     private String uf;
 
-    public Cliente(String id, String nome, String cpf, String cidade, String uf) {
-        super();
-        this.id = id;
+    public Cliente(String nome, String cpf, String cidade, String uf) {
         this.nome = nome;
         this.cpf = cpf;
         this.cidade = cidade;
